@@ -12,6 +12,8 @@
     <modules>
         <module>jcase-algorithm</module>
         <module>jcase-patterns</module>
+        <module>jcase-mvcjunit</module>
+        <module>jcase-starters</module>
     </modules>
 
     <properties>
