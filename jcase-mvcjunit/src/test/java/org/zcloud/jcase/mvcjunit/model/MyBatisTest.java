@@ -21,14 +21,22 @@ public class MyBatisTest {
     private UserMapper userMapper;
 
     @Test
-    public void selectList(){
-        List<User> users = userMapper.selectList(null);
-        users.forEach(System.out::println);
-    }
-    @Test
     public void insert(){
         User user = new User();
+        long start = System.currentTimeMillis();
         userMapper.insert(user);
+        long times = System.currentTimeMillis() - start;
+        System.out.println(times);
         assertThat(user.getId()).isNotNull();
+    }
+
+    @Test
+    public void selectList(){
+        long start = System.currentTimeMillis();
+        List<User> users = userMapper.selectList(null);
+        long times = System.currentTimeMillis() - start;
+        System.out.println(times);
+        assertThat(times).isLessThan(100);
+//        users.forEach(System.out::println);
     }
 }
